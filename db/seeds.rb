@@ -17,3 +17,9 @@ user = User.create!(name: 'User', email: 'user@user.ru', password: 'qweqweqwe')
 																	user_id: new_user.id)
 	end
 end
+30.times do
+	new_comment = Comment.create!(rating: Faker::Number.between(1, 5),
+																text: Faker::Lorem.sentence,
+																user_id: Faker::Number.between(1, 10),
+																picture_id: Faker::Number.between(1, 50))
+end
