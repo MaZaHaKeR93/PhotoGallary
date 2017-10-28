@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :pictures
   devise :database_authenticatable, :registerable, :rememberable, :validatable
+
+  def user?
+  	!self.admin?
+  end
 end

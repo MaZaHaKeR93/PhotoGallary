@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'cancancan', '~> 2.0'
 gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 gem 'mini_magick'
 gem 'carrierwave', '~> 1.0'
