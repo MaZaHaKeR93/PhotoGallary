@@ -6,7 +6,11 @@
 		<% @comments.each do |comment| %>
 			<% average_rating += comment.rating %>
 		<% end %>
-		<h4>Average rating: <%= average_rating / @comments.length %></h4>
+		<% unless average_rating == 0 %>
+			<h4>Average rating: <%= average_rating / @comments.length %></h4>
+		<% else %>
+			<h4>Average rating: 0</h4>
+		<% end %>
 	</div>
 </div>
 <hr>

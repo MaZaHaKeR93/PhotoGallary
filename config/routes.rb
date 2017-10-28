@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root 'pictures#index'
   get 'user/:id' => 'pictures#show_user_pictures', as: 'user_pictures'
   resources :pictures, only: [:show, :index, :new, :create, :destroy] do 
