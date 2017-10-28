@@ -27,6 +27,9 @@
             Hello, <%= current_user.name %>!
           </p>
           <p class="navbar-text">
+            <%= link_to 'Admin panel', '/admin' if current_user.admin %>
+          </p>
+          <p class="navbar-text">
             <%= link_to 'My profile', user_pictures_path(current_user), class: 'navbar-link' %>
           </p>
           <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-default navbar-btn' %>

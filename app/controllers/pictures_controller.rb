@@ -31,7 +31,9 @@ class PicturesController < ApplicationController
   end
 
   def destroy
+    @picture.remove_image!
 		@picture.destroy
+
 		redirect_to root_path, notice: "Picture has been deleted"
   end
 
