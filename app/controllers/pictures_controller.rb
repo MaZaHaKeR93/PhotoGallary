@@ -6,6 +6,7 @@ class PicturesController < ApplicationController
   end
 
   def show
+    @comments = @picture.comments
   end
 
   def new
