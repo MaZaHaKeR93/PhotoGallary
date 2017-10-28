@@ -7,6 +7,10 @@ class PicturesController < ApplicationController
 
   def show
     @comments = @picture.comments
+    @average_rating = @comments.average(:rating)
+    if user_signed_in?
+      @comments_availability = @comments.find_by(user_id: "#{current_user.id}")
+    end
   end
 
   def new
@@ -28,7 +32,7 @@ class PicturesController < ApplicationController
 
   def destroy
 		@picture.destroy
-		redirect_to root_path, notice: "Notice has been deleted"
+		redirect_to root_path, notice: "Picture has been deleted"
   end
 
   def show_user_pictures

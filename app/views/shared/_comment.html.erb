@@ -11,7 +11,7 @@
 			</div>
 		</div>
 	<% end %>
-<% if user_signed_in? %>
+<% if user_signed_in? && @comments_availability.nil? %>
 	<div class="row">
 		<div class="col-sm-12">
 			<%= simple_form_for [@picture, @picture.comments.new] do |f|%>

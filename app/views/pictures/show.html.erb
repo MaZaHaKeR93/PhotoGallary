@@ -2,15 +2,12 @@
 	<div class="col-sm-10">
 		<h1><%= @picture.title %></h1>
 		<%= image_tag(@picture.image.url(:big)) %>
-		<% average_rating = 0 %>
-		<% @comments.each do |comment| %>
-			<% average_rating += comment.rating %>
-		<% end %>
-		<% unless average_rating == 0 %>
-			<h4>Average rating: <%= average_rating / @comments.length %></h4>
+		<% unless @average_rating.nil? %>
+			Average rating: <%= @average_rating.round(1) %>
 		<% else %>
-			<h4>Average rating: 0</h4>
+			Average rating: 0
 		<% end %>
+
 	</div>
 </div>
 <hr>
