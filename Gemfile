@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 gem 'mini_magick'
 gem 'carrierwave', '~> 1.0'
 gem 'will_paginate', '~> 3.1.0'
