@@ -30,6 +30,11 @@ class PicturesController < ApplicationController
 		redirect_to root_path, notice: "Notice has been deleted"
   end
 
+  def show_user_pictures
+    @user = User.find(params[:id])
+    @pictures = @user.pictures
+  end
+
 	private
 
 	def fetch_picture		

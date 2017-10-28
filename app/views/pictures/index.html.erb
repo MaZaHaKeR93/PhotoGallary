@@ -1,12 +1,12 @@
-<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+<%= will_paginate @pictures, renderer: BootstrapPagination::Rails %>
 <div class="row">	
 	<% @pictures.each do |picture| %>
 		<div class="col-sm-3">
 			<%= image_tag(picture.image.url(:small)) %> <br>
 			<%= link_to picture.title, picture_path(picture) %>
-			<p>By <%= picture.user.name %></p>
+			<p>By <%= link_to picture.user.name, user_pictures_path(picture.user) %></p>
 		</div>
 	<% end %>
 </div>
 
-<%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+<%= will_paginate @pictures, renderer: BootstrapPagination::Rails %>

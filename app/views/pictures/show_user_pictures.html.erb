@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-sm-10">
+		<h1>
+			<%= @user.name %>'s profile
+			<%= link_to 'Edit', edit_user_registration_path(current_user), class: 'btn btn-success' if can? :update, @user%>
+		</h1>
+		<h3>
+			My photos: <%= link_to 'Create new photo', new_picture_path, class: 'btn btn-success' if can? :create, @user %>
+		</h3>
+		<hr>		
+	</div>
+</div>
+<table class="table">
+	<tr>
+		<th>Photo</th>
+		<th>Title</th>
+		<th>Action</th>
+	</tr>
+	<% @pictures.each do |picture| %>
+		<tr>
+			<td><%= image_tag(picture.image.url(:small)) %></td>
+			<td><%= link_to picture.title, picture_path(picture) %></td>
+			<td><%= link_to 'Remove', picture_path(picture), method: :delete if can? :destroy, @user %></td>
+		</tr>
+	<% end %>
+</table>
+

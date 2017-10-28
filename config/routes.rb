@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'pictures#index'
+  get 'user/:id' => 'pictures#show_user_pictures', as: 'user_pictures'
   resources :pictures, only: [:show, :index, :new, :create, :destroy]
   devise_for :users
 
