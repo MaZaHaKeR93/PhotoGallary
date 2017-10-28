@@ -1,7 +1,7 @@
 	<% @comments.each do |comment| %>
 	  <div class="panel panel-primary">
 	  	<div class="panel-heading">
-				<%= comment.user.name %>
+				<%= comment.user.name %> | Rating: <%= comment.rating %>
 				<% if user_signed_in? && current_user.id == comment.user.id %>
 					<%= link_to 'Delete', picture_comment_path(@picture, comment), class: 'btn btn-danger btn-xs', method: :delete, data: {confirm: "Are you sure?"} %>
 				<% end %>
