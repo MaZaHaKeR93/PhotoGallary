@@ -5,7 +5,7 @@
 			<%= link_to 'Edit', edit_user_registration_path(current_user), class: 'btn btn-success' if can? :update, @user%>
 		</h1>
 		<h3>
-			My photos: <%= link_to 'Create new photo', new_picture_path, class: 'btn btn-success' if can? :create, @user %>
+			My photos: <%= link_to 'Create new photo', new_picture_path, class: 'btn btn-success' if current_user == @user %>
 		</h3>
 		<hr>		
 	</div>
