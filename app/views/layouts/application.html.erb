@@ -7,8 +7,45 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>">Photogallery</a>
+    </div>
 
-<%= yield %>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="navbar-nav navbar-right">
+        <% if user_signed_in? %>
+					<p class="navbar-text">
+            Hello, <%= current_user.name %>!
+          </p>
+          <p class="navbar-text">
+            <%= link_to 'My profile', edit_user_registration_path(current_user), class: 'navbar-link' %>
+          </p>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-default navbar-btn' %>
+        <% else %>
+          <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-default navbar-btn' %>
+          <%= link_to 'Log in', new_user_session_path, class: 'btn btn-default navbar-btn' %>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+<% unless notice.nil? %>
+  <ul class="alert alert-danger width-error-block">
+   <li> <%= notice %> </li>
+  </ul>
+<% end %>
+	  <%= yield %>
+</div>
 
 </body>
 </html>
